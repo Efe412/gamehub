@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 GameHub Premium - En İyi Oyunlar</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-premium">
+                <i class="fas fa-gamepad"></i>
+                <span>GameHub</span>
+                <span class="premium-badge">PRO</span>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="nav-btn active" data-category="all">
+                <i class="fas fa-home"></i> 
+                <span>Ana Sayfa</span>
+            </button>
+            <button class="nav-btn" data-category="firewater">
+                <i class="fas fa-fire"></i> 
+                <span>Ateş ve Su</span>
+                <span class="game-count">3</span>
+            </button>
+            <button class="nav-btn" data-category="backrooms">
+                <i class="fas fa-door-open"></i> 
+                <span>Backrooms</span>
+                <span class="game-count">2</span>
+            </button>
+            <button class="nav-btn" data-category="racing">
+                <i class="fas fa-car"></i> 
+                <span>Araba Oyunları</span>
+                <span class="game-count">3</span>
+            </button>
+            <button class="nav-btn" data-category="puzzle">
+                <i class="fas fa-puzzle-piece"></i> 
+                <span>Bulmaca</span>
+                <span class="game-count">2</span>
+            </button>
+            <button class="nav-btn" data-category="platformer">
+                <i class="fas fa-running"></i> 
+                <span>Platform</span>
+                <span class="game-count">2</span>
+            </button>
+            <div class="menu-divider"></div>
+            <button class="nav-btn" data-page="settings">
+                <i class="fas fa-cog"></i> 
+                <span>Ayarlar</span>
+            </button>
+            <button class="nav-btn" data-page="profile">
+                <i class="fas fa-user"></i> 
+                <span>Profil</span>
+            </button>
+            <button class="nav-btn" data-page="support">
+                <i class="fas fa-headset"></i> 
+                <span>Destek</span>
+            </button>
+            <button class="nav-btn" data-page="staff">
+                <i class="fas fa-users-cog"></i> 
+                <span>Yönetim Kadrosu</span>
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>12 Oyun</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span>Online</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameHub Premium</span>
+            </div>
+            <div class="header-controls">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Oyun ara..." id="gameSearch">
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="content">
+            <!-- Hero Section -->
+            <div class="hero" id="hero">
+                <div class="hero-content">
+                    <h1>En İyi Oyunlarla Eğlencenin Zirvesinde!</h1>
+                    <p>Premium oyun deneyimi ile sınırsız eğlence</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">Oyun</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Kategori</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">7/24</span>
+                            <span class="stat-label">Erişim</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-icons">
+                        <i class="fas fa-fire"></i>
+                        <i class="fas fa-car"></i>
+                        <i class="fas fa-puzzle-piece"></i>
+                        <i class="fas fa-running"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="games-section">
+                <div class="section-header">
+                    <h2 id="sectionTitle">Tüm Oyunlar</h2>
+                    <div class="section-controls">
+                        <button class="sort-btn" onclick="sortGames('rating')">
+                            <i class="fas fa-star"></i> Puan
+                        </button>
+                        <button class="sort-btn" onclick="sortGames('name')">
+                            <i class="fas fa-sort-alpha-down"></i> İsim
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Ateş ve Su Oyunları -->
+                    <div class="game-card" data-category="firewater" data-rating="4.8" data-name="fireboy">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImZpcmUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZjQwMDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjgwMDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNmaXJlKSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5GaXJlYm95PC90ZXh0Pjwvc3ZnPg==" alt="Fireboy Game">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Fireboy & Watergirl: Forest</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </div>
+                            </div>
+                            <p>Klasik işbirliği oyunu. Ateş ve su karakterlerini kontrol ederek bulmacaları çözün!</p>
+                            <div class="game-footer">
+                                <span class="category-tag firewater">
+                                    <i class="fas fa-fire"></i> Ateş & Su
+                                </span>
+                                <button class="play-btn" onclick="playGame('fireboy1')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="firewater" data-rating="4.7" data-name="watergirl">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9IndhdGVyIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDA4MGZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDBhMGZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjd2F0ZXIpIi8+PHRleHQgeD0iMTUwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjI0IiBmb250LWZhbWlseT0iQXJpYWwiPldhdGVyZ2lybDwvdGV4dD48L3N2Zz4=" alt="Watergirl Game">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Fireboy & Watergirl: Ice Temple</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </div>
+                            </div>
+                            <p>Buzlu tapınakta yeni zorluklarla karşılaşın. Kaygan zeminlerde dikkatli olun!</p>
+                            <div class="game-footer">
+                                <span class="category-tag firewater">
+                                    <i class="fas fa-snowflake"></i> Buz Tapınak
+                                </span>
+                                <button class="play-btn" onclick="playGame('fireboy2')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="firewater" data-rating="4.6" data-name="crystal">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImNyeXN0YWwiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM4YjVjZjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhODU1ZjciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNjcnlzdGFsKSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5DcnlzdGFsIFRlbXBsZTwvdGV4dD48L3N2Zz4=" alt="Crystal Temple">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Fireboy & Watergirl: Crystal Temple</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.6
+                                </div>
+                            </div>
+                            <p>Kristal tapınakta ışık yansımaları ile bulmacaları çözün!</p>
+                            <div class="game-footer">
+                                <span class="category-tag firewater">
+                                    <i class="fas fa-gem"></i> Kristal
+                                </span>
+                                <button class="play-btn" onclick="playGame('fireboy3')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backrooms Oyunları -->
+                    <div class="game-card featured" data-category="backrooms" data-rating="4.9" data-name="backrooms-escape">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJhY2tyb29tcyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmY4OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmY0NCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2JhY2tyb29tcykiLz48dGV4dCB4PSIxNTAiIHk9IjkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2IiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiPkJhY2tyb29tczwvdGV4dD48dGV4dCB4PSIxNTAiIHk9IjExNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1zaXplPSIxNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5Fc2NhcGU8L3RleHQ+PC9zdmc+" alt="Backrooms Escape">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="featured-badge">
+                                <i class="fas fa-crown"></i> YENİ
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Backrooms: Escape</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.9
+                                </div>
+                            </div>
+                            <p>Sonsuz sarı odalardan kaçmaya çalışın. Özel tasarım korku deneyimi!</p>
+                            <div class="game-footer">
+                                <span class="category-tag backrooms">
+                                    <i class="fas fa-door-open"></i> Backrooms
+                                </span>
+                                <button class="play-btn" onclick="playGame('backrooms-custom')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="backrooms" data-rating="4.5" data-name="backrooms-survival">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InN1cnZpdmFsIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNDQ0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjIyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjc3Vydml2YWwpIi8+PHRleHQgeD0iMTUwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiPlN1cnZpdmFsPC90ZXh0Pjwvc3ZnPg==" alt="Backrooms Survival">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Backrooms: Survival</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </div>
+                            </div>
+                            <p>Hayatta kalma modunda backrooms'da dayanın. Kaynakları toplayın!</p>
+                            <div class="game-footer">
+                                <span class="category-tag backrooms">
+                                    <i class="fas fa-running"></i> Survival
+                                </span>
+                                <button class="play-btn" onclick="playGame('backrooms2')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Araba Oyunları -->
+                    <div class="game-card" data-category="racing" data-rating="4.8" data-name="drift">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImRyaWZ0IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmY2NjAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY4ODAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjZHJpZnQpIi8+PHRleHQgeD0iMTUwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiPkRyaWZ0IEh1bnRlcnM8L3RleHQ+PC9zdmc+" alt="Drift Hunters">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Drift Hunters</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </div>
+                            </div>
+                            <p>Gerçekçi drift simülasyonu. Arabanızı özelleştirin ve en iyi skoru yapın!</p>
+                            <div class="game-footer">
+                                <span class="category-tag racing">
+                                    <i class="fas fa-car"></i> Racing
+                                </span>
+                                <button class="play-btn" onclick="playGame('drift')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="racing" data-rating="4.6" data-name="madalin">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InN0dW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTZhMzRhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjJjNTVlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjc3R1bnQpIi8+PHRleHQgeD0iMTUwIiB5PSI5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCI+TWFkYWxpbjwvdGV4dD48dGV4dCB4PSIxNTAiIHk9IjExNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCI+U3R1bnQgQ2FyczwvdGV4dD48L3N2Zz4=" alt="Madalin Stunt Cars">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Madalin Stunt Cars 3</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.6
+                                </div>
+                            </div>
+                            <p>Çılgın akrobasi arabalarıyla muhteşem gösteriler yapın!</p>
+                            <div class="game-footer">
+                                <span class="category-tag racing">
+                                    <i class="fas fa-road"></i> Stunt
+                                </span>
+                                <button class="play-btn" onclick="playGame('madalin')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="racing" data-rating="4.7" data-name="burnout">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJ1cm5vdXQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNkYzI2MjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZjQ0NDQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNidXJub3V0KSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5CdXJub3V0IERyaWZ0PC90ZXh0Pjwvc3ZnPg==" alt="Burnout Drift">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Burnout Drift</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </div>
+                            </div>
+                            <p>Hızlı drift yarışları ve burnout gösterileri!</p>
+                            <div class="game-footer">
+                                <span class="category-tag racing">
+                                    <i class="fas fa-fire"></i> Burnout
+                                </span>
+                                <button class="play-btn" onclick="playGame('burnout')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bulmaca Oyunları -->
+                    <div class="game-card" data-category="puzzle" data-rating="4.5" data-name="tetris">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InRldHJpcyIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNjM2NmYxIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOGI1Y2Y2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjdGV0cmlzKSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5UZXRyaXM8L3RleHQ+PC9zdmc+" alt="Tetris">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Klasik Tetris</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </div>
+                            </div>
+                            <p>Klasik Tetris oyunu. Blokları yerleştirip satırları temizleyin!</p>
+                            <div class="game-footer">
+                                <span class="category-tag puzzle">
+                                    <i class="fas fa-puzzle-piece"></i> Bulmaca
+                                </span>
+                                <button class="play-btn" onclick="playGame('tetris')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="puzzle" data-rating="4.4" data-name="2048">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9IjIwNDgiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmNTllMGIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmOWFjMGQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCMyMDQ4KSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIzMiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXdlaWdodD0iYm9sZCI+MjA0ODwvdGV4dD48L3N2Zz4=" alt="2048">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>2048 Oyunu</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.4
+                                </div>
+                            </div>
+                            <p>Sayıları birleştirerek 2048'e ulaşmaya çalışın!</p>
+                            <div class="game-footer">
+                                <span class="category-tag puzzle">
+                                    <i class="fas fa-calculator"></i> Matematik
+                                </span>
+                                <button class="play-btn" onclick="playGame('2048')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform Oyunları -->
+                    <div class="game-card" data-category="platformer" data-rating="4.6" data-name="super-mario">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9Im1hcmlvIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZGMyNjI2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWY0NDQ0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjbWFyaW8pIi8+PHRleHQgeD0iMTUwIiB5PSI5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCI+U3VwZXIgTWFyaW88L3RleHQ+PHRleHQgeD0iMTUwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE0IiBmb250LWZhbWlseT0iQXJpYWwiPkJyb3M8L3RleHQ+PC9zdmc+" alt="Super Mario">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Super Mario Bros</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.6
+                                </div>
+                            </div>
+                            <p>Klasik platform oyunu. Mario ile maceralara atılın!</p>
+                            <div class="game-footer">
+                                <span class="category-tag platformer">
+                                    <i class="fas fa-running"></i> Platform
+                                </span>
+                                <button class="play-btn" onclick="playGame('mario')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="platformer" data-rating="4.3" data-name="geometry-dash">
+                        <div class="game-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9Imdlb21ldHJ5IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDU5NjY5Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGI5ODhmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjZ2VvbWV0cnkpIi8+PHRleHQgeD0iMTUwIiB5PSI5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCI+R2VvbWV0cnk8L3RleHQ+PHRleHQgeD0iMTUwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE0IiBmb250LWZhbWlseT0iQXJpYWwiPkRhc2g8L3RleHQ+PC9zdmc+" alt="Geometry Dash">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3>Geometry Dash</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i> 4.3
+                                </div>
+                            </div>
+                            <p>Ritim platformer! Müzik eşliğinde engelleri aşın!</p>
+                            <div class="game-footer">
+                                <span class="category-tag platformer">
+                                    <i class="fas fa-music"></i> Ritim
+                                </span>
+                                <button class="play-btn" onclick="playGame('geometry')">
+                                    <i class="fas fa-play"></i> Oyna
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div class="page-content" id="settingsPage" style="display: none;">
+                <div class="page-header">
+                    <h2><i class="fas fa-cog"></i> Ayarlar</h2>
+                </div>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Görünüm</h3>
+                        <div class="setting-item">
+                            <label>Tema Modu</label>
+                            <button class="setting-toggle" id="themeSettingToggle">
+                                <span class="toggle-text">Karanlık</span>
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <label>Animasyonlar</label>
+                            <button class="setting-toggle active" id="animationToggle">
+                                <span class="toggle-text">Açık</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="setting-card">
+                        <h3>Oyun</h3>
+                        <div class="setting-item">
+                            <label>Ses Efektleri</label>
+                            <button class="setting-toggle active" id="soundToggle">
+                                <span class="toggle-text">Açık</span>
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <label>Otomatik Tam Ekran</label>
+                            <button class="setting-toggle" id="fullscreenToggle">
+                                <span class="toggle-text">Kapalı</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="page-content" id="profilePage" style="display: none;">
+                <div class="page-header">
+                    <h2><i class="fas fa-user"></i> Profil</h2>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Oyuncu</h3>
+                        <p>Premium Üye</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Oynanan Oyun</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Toplam Süre</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Page -->
+            <div class="page-content" id="supportPage" style="display: none;">
+                <div class="page-header">
+                    <h2><i class="fas fa-headset"></i> Destek</h2>
+                </div>
+                <div class="support-container">
+                    <div class="support-card">
+                        <h3>Sık Sorulan Sorular</h3>
+                        <div class="faq-item">
+                            <h4>Oyunlar neden yüklenmiyor?</h4>
+                            <p>İnternet bağlantınızı kontrol edin ve sayfayı yenilemeyi deneyin.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Hangi tarayıcıları destekliyorsunuz?</h4>
+                            <p>Chrome, Firefox, Safari ve Edge tarayıcılarını destekliyoruz.</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <h3>İletişim</h3>
+                        <p>Herhangi bir sorunuz için bizimle iletişime geçin:</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> support@gamehub.com</p>
+                            <p><i class="fas fa-phone"></i> +90 555 123 4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Page -->
+            <div class="page-content" id="staffPage" style="display: none;">
+                <div class="page-header">
+                    <h2><i class="fas fa-users-cog"></i> Yönetim Kadrosu</h2>
+                </div>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <div class="staff-avatar">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Admin</h3>
+                        <p>Site Yöneticisi</p>
+                        <span class="staff-role admin">Yönetici</span>
+                    </div>
+                    <div class="staff-card">
+                        <div class="staff-avatar">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Developer</h3>
+                        <p>Geliştirici</p>
+                        <span class="staff-role developer">Geliştirici</span>
+                    </div>
+                    <div class="staff-card">
+                        <div class="staff-avatar">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Moderator</h3>
+                        <p>Topluluk Moderatörü</p>
+                        <span class="staff-role moderator">Moderatör</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Game Modal -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Oyun</h3>
+                <div class="modal-controls">
+                    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button class="close-btn" onclick="closeGame()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe id="gameFrame" src="" frameborder="0"></iframe>
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="loading-spinner"></div>
+                    <p>Oyun yükleniyor...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
